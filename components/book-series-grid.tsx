@@ -60,7 +60,7 @@ export function BookSeriesGrid() {
   id="series"
   className="py-24 md:py-32 relative overflow-hidden"
   style={{
-    backgroundImage: `url("/images/orange Background.jpg")`,
+    backgroundImage: `url("/images/Orange Background.jpg")`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
