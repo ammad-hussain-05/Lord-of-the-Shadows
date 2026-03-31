@@ -73,7 +73,7 @@ export function BooksCollage() {
                   <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 group-hover:border-white/20 transition-all duration-500">
                     <Image
                       src={book.src}
-                      alt={book.title}
+                      alt=""
                       fill
                       className="object-cover"
                     />
