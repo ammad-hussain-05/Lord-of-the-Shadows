@@ -23,7 +23,7 @@ const medievalSharp = MedievalSharp({
 });
 
 export const metadata: Metadata = {
-  title: 'Lord of the Rings',
+  title: 'Lord of the Shadows',
   description: 'Enter the dark worlds of bestselling fantasy author. Epic sagas, mythic adventures, and unforgettable tales await.',
   generator: 'v0.app',
   icons: {
