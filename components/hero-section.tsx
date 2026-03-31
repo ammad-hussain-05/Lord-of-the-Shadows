@@ -150,7 +150,7 @@ export function HeroSection() {
  <section
   className="relative z-10 w-full h-screen py-20 md:py-60"
   // style={{
-  //   backgroundImage: `url("/images/orange Background.jpg")`,
+  //   backgroundImage: `url("/images/Orange Background.jpg")`,
   //   backgroundSize: "cover",
   //   backgroundPosition: "center",
   //   backgroundRepeat: "no-repeat",
