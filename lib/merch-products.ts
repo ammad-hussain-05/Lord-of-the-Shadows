@@ -29,7 +29,7 @@ const characters = [
   { name: "Elka", folder: "elka", fileBase: "elka", featured: false },
   { name: "Leadena", folder: "leadena", fileBase: "leadena", featured: true },
   { name: "Micheal", folder: "micheal", fileBase: "micheal", featured: false },
-  { name: "Angle", folder: "Angle", fileBase: "angle", featured: false },
+  { name: "Angle", folder: "Angle", fileBase: "Angle", featured: false },
   { name: "Dagger", folder: "dagger", fileBase: "dagger", featured: false },
 ]
 const productSettings: Record<
