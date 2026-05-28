@@ -1,0 +1,391 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+
+
+:root {
+  /* Dark Fantasy Theme - Near Black Background */
+  --background: #0a0a0f;
+  --foreground: #f0f0f0;
+  --card: #12121a;
+  --card-foreground: #f0f0f0;
+  --popover: #12121a;
+  --popover-foreground: #f0f0f0;
+  /* Gold Accent */
+  --primary: #c9a84c;
+  --primary-foreground: #0a0a0f;
+  --secondary: #1a1a24;
+  --secondary-foreground: #f0f0f0;
+  --muted: #1a1a24;
+  --muted-foreground: #8a8a9a;
+  /* Purple Glow */
+  --accent: #7b2fff;
+  --accent-foreground: #f0f0f0;
+  --destructive: #dc2626;
+  --destructive-foreground: #f0f0f0;
+  --border: #2a2a3a;
+  --input: #1a1a24;
+  --ring: #c9a84c;
+  --chart-1: #ffc402;
+  --chart-2: #7b2fff;
+  --chart-3: #f0f0f0;
+  --chart-4: #2a2a3a;
+  --chart-5: #8a8a9a;
+  --radius: 0.5rem;
+  /* Custom colors for the theme */
+  --gold: #d47828;
+  --gold-light: #dfc76e;
+  --purple-glow: #7b2fff;
+  --purple-glow-light: #9d5cff;
+}
+
+@theme inline {
+  --font-sans: 'DM Sans', 'Geist Fallback';
+  --font-serif: 'Playfair Display', serif;
+  --font-display: 'MedievalSharp', cursive;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-purple-glow: var(--purple-glow);
+  --color-purple-glow-light: var(--purple-glow-light);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Animations */
+@keyframes ring-pulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+    box-shadow: 0 0 30px var(--purple-glow), 0 0 60px var(--purple-glow), inset 0 0 30px var(--gold);
+  }
+  50% {
+    transform: scale(1.05) rotate(180deg);
+    opacity: 1;
+    box-shadow: 0 0 50px var(--purple-glow), 0 0 100px var(--purple-glow), inset 0 0 50px var(--gold);
+  }
+}
+
+@keyframes ring-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px var(--purple-glow)) drop-shadow(0 0 40px var(--gold));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px var(--purple-glow)) drop-shadow(0 0 60px var(--gold));
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-ring-pulse {
+  animation: ring-pulse 3s ease-in-out infinite;
+}
+
+.animate-ring-glow {
+  animation: ring-glow 2s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.3), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--gold);
+  color: var(--background);
+}
+
+.shop-card-scene {
+  perspective: 1200px;
+}
+
+.shop-rotating-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  animation: shopCardStrongRotate 5.5s ease-in-out infinite;
+}
+
+.shop-card-video {
+  transform-origin: center;
+  will-change: transform;
+  animation: shopCardVideoMotion 10s linear infinite;
+}
+
+@keyframes shopCardStrongRotate {
+  0% {
+    transform: rotateX(20deg) rotateY(-6deg) translateY(0px) scale(1);
+  }
+  25% {
+    transform: rotateX(27deg) rotateY(16deg) translateY(-14px) scale(1.015);
+  }
+  50% {
+    transform: rotateX(0deg) rotateY(20deg) translateY(0px) scale(1);
+  }
+  75% {
+    transform: rotateX(-7deg) rotateY(-6deg) translateY(4px) scale(1.015);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(-16deg) translateY(0px) scale(1);
+  }
+}
+
+@keyframes shopCardVideoMotion {
+  0% {
+    transform: scale(1.18) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.35) rotate(18deg);
+  }
+  100% {
+    transform: scale(1.18) rotate(20deg);
+  }
+}
+
+.animated-shop-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 128px;
+  height: 46px;
+  padding: 0 34px;
+  border: 3px solid transparent;
+  background-color: transparent;
+  border-radius: 999px;
+  color: #d47828;
+  box-shadow: 0 0 0 2px #d47828, 0 0 28px rgba(212, 120, 40, 0.18);
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-shop-button svg {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  color: #d47828;
+  stroke: currentColor;
+  fill: none;
+  z-index: 9;
+  transform: translateY(-50%);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-shop-button .arr-1 {
+  right: 16px;
+}
+
+.animated-shop-button .arr-2 {
+  left: -35px;
+}
+
+.animated-shop-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #d47828;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-shop-button .text {
+  position: relative;
+  z-index: 1;
+  display: block;
+  transform: translateX(-10px);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: currentColor;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-shop-button:hover {
+  color: #111111;
+  border-radius: 14px;
+  box-shadow: 0 0 0 12px transparent, 0 0 40px rgba(212, 120, 40, 0.5);
+}
+
+.animated-shop-button:hover .arr-1 {
+  right: -35px;
+}
+
+.animated-shop-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-shop-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-shop-button:hover svg {
+  color: #111111;
+}
+
+.animated-shop-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
+.animated-shop-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px #d47828;
+}
+
+.mobile-shop-button {
+  display: flex;
+  width: 100%;
+  min-width: 100%;
+  height: 48px;
+}
+
+.product-detail-scene {
+  perspective: 1300px;
+}
+
+.product-detail-rotating-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  animation: productDetailCardRotate 6.5s ease-in-out infinite;
+}
+
+.product-detail-image {
+  transform-origin: center;
+  will-change: transform;
+  animation: productDetailImageMotion 9s ease-in-out infinite;
+}
+
+@keyframes productDetailCardRotate {
+  0% {
+    transform: rotateX(0deg) rotateY(-13deg) translateY(0px) scale(1);
+  }
+  25% {
+    transform: rotateX(5deg) rotateY(13deg) translateY(-12px) scale(1.015);
+  }
+  50% {
+    transform: rotateX(0deg) rotateY(17deg) translateY(0px) scale(1);
+  }
+  75% {
+    transform: rotateX(-5deg) rotateY(-13deg) translateY(12px) scale(1.015);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(-13deg) translateY(0px) scale(1);
+  }
+}
+
+@keyframes productDetailImageMotion {
+  0% {
+    transform: scale(1.08) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.16) rotate(2.5deg);
+  }
+  100% {
+    transform: scale(1.08) rotate(0deg);
+  }
+}
+.explore-products-scroll {
+  scrollbar-width: none;
+}
+
+.explore-products-scroll::-webkit-scrollbar {
+  display: none;
+}
