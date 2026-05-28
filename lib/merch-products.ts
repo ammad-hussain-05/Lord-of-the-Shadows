@@ -23,16 +23,15 @@ export type MerchProduct = {
 }
 
 const characters = [
-  { name: "Dravgon", folder: "Dravgon", featured: true },
-  { name: "Elain", folder: "Elain", featured: false },
-  { name: "Elf", folder: "Elf", featured: false },
-  { name: "Elka", folder: "Elka", featured: false },
-  { name: "Leadena", folder: "Leadena", featured: true },
-  { name: "Micheal", folder: "Micheal", featured: false },
-  { name: "Angle", folder: "Angle", featured: false },
-  { name: "Dagger", folder: "Dagger", featured: false },
+  { name: "Dravgon", folder: "dravgon", fileBase: "dravgon", featured: true },
+  { name: "Elain", folder: "elain", fileBase: "elain", featured: false },
+  { name: "Elf", folder: "elf", fileBase: "elf", featured: false },
+  { name: "Elka", folder: "elka", fileBase: "elka", featured: false },
+  { name: "Leadena", folder: "leadena", fileBase: "leadena", featured: true },
+  { name: "Micheal", folder: "micheal", fileBase: "micheal", featured: false },
+  { name: "Angle", folder: "Angle", fileBase: "angle", featured: false },
+  { name: "Dagger", folder: "dagger", fileBase: "dagger", featured: false },
 ]
-
 const productSettings: Record<
   MerchCategory,
   {
@@ -130,6 +129,7 @@ const getDetails = (character: string, category: MerchCategory) => {
 const createProduct = (
   character: string,
   folder: string,
+  fileBase: string,
   category: MerchCategory,
   featured = false
 ): MerchProduct => {
@@ -144,7 +144,7 @@ const createProduct = (
     character,
     category,
     price: settings.price,
-    image: `/Merchandize/${folder}/${folder}-${settings.fileSuffix}.png`,
+    image: `/Merchandize/${folder}/${fileBase}-${settings.fileSuffix}.png`, 
     description: getShortDescription(character, category),
     longDescription: getLongDescription(character, category),
     highlights: getHighlights(category),
@@ -156,9 +156,9 @@ const createProduct = (
 }
 
 export const merchProducts: MerchProduct[] = characters.flatMap((character) => [
-  createProduct(character.name, character.folder, "Mugs", character.featured),
-  createProduct(character.name, character.folder, "T-Shirts", character.featured),
-  createProduct(character.name, character.folder, "Chains"),
+  createProduct(character.name, character.folder, character.fileBase, "Mugs", character.featured),
+  createProduct(character.name, character.folder, character.fileBase, "T-Shirts", character.featured),
+  createProduct(character.name, character.folder, character.fileBase, "Chains"),
 ])
 
 export const merchCategories: ("All" | MerchCategory)[] = [
