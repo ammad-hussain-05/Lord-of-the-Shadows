@@ -389,3 +389,13 @@
 .explore-products-scroll::-webkit-scrollbar {
   display: none;
 }
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}

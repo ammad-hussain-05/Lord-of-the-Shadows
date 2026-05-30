@@ -45,16 +45,11 @@ export function HeroSection() {
     <>
       {/* ==================== EXTENDED HERO SECTION (Ab 2 sections cover karega) ==================== */}
       <section
-        ref={sceneRef}
-        className="relative w-full overflow-hidden"
-        style={{
-          height: '180vh',           // ← Yeh badhaya hai (2 sections cover karega)
-          minHeight: '1200px',
-          background: '#0a0400',
-        }}
-      >
+  ref={sceneRef}
+  className="relative w-full max-w-full overflow-hidden bg-[#0a0400] min-h-[100svh] md:h-[180vh] md:min-h-[1200px]"
+>
         {/* 5 Layers Merged */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 object-cover object-center">
 
           {/* Layer 1 - Deep Background */}
           <Image
@@ -63,7 +58,7 @@ export function HeroSection() {
             alt=""
             fill
             priority
-            className="absolute inset-0 object-cover"
+            className="absolute inset-0 object-cover object-center"
             style={{ zIndex: 1 }}
           />
 
@@ -73,7 +68,7 @@ export function HeroSection() {
             src="/images/Hero Banner 2.png"
             alt=""
             fill
-            className="absolute inset-0 object-cover"
+            className="absolute inset-0 object-cover object-center"
             style={{ zIndex: 11 }}
           />
 
@@ -83,7 +78,7 @@ export function HeroSection() {
             src="/images/Hero Banner 3.png"
             alt=""
             fill
-            className="absolute inset-0 object-cover"
+            className="absolute inset-0 object-cover object-center"
             style={{ zIndex: 11 }}
           />
 
@@ -93,7 +88,7 @@ export function HeroSection() {
             src="/images/Hero Banner 4.png"
             alt=""
             fill
-            className="absolute inset-0 object-cover"
+            className="absolute inset-0 object-cover object-center"
             style={{ zIndex: 11 }}
           />
 
@@ -103,7 +98,7 @@ export function HeroSection() {
             src="/images/Hero Banner 5.png"
             alt=""
             fill
-            className="absolute inset-0 object-cover"
+            className="absolute inset-0 object-cover object-center"
             style={{ zIndex: 16 }}
           />
         </div>
@@ -113,7 +108,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,#00000000_35%,#000000c0_85%)] z-20" />
 
         {/* Hero Text */}
-<div className="absolute bottom-[35%] left-1/2 -translate-x-1/2 text-center z-30 w-full max-w-[820px] px-6">
+<div className="absolute bottom-10 left-1/2 z-30 w-full max-w-[820px] -translate-x-1/2 px-5 text-center sm:px-6 md:bottom-[35%]">
           <p className="text-[#ffbf65] text-[clamp(9px,1vw,12px)] tracking-[0.36em] font-semibold uppercase mb-2 font-serif">
             THE SHADOW CHRONICLES
           </p>
@@ -129,8 +124,8 @@ export function HeroSection() {
             In a dying realm, one warrior will either claim the throne — or watch it consume him.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Link
+<div className="mt-8 flex w-full flex-col justify-center gap-4 sm:flex-row">
+              <Link
               href="/shop"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-[#c8872f] to-[#e8a040] text-white font-bold px-10 py-4 rounded-md text-sm tracking-widest hover:brightness-110 transition"
             >
@@ -147,17 +142,8 @@ export function HeroSection() {
       </section>
 
       {/* ==================== SECOND SECTION (Bilkul Untouched) ==================== */}
- <section
-  className="relative z-10 w-full h-screen py-20 md:py-60"
-  // style={{
-  //   backgroundImage: `url("/images/Orange Background.jpg")`,
-  //   backgroundSize: "cover",
-  //   backgroundPosition: "center",
-  //   backgroundRepeat: "no-repeat",
-  // }}
->
-  <div className="grid lg:grid-cols-2 gap-12 items-center">
-    
+<section className="relative z-10 w-full max-w-full overflow-hidden px-4 py-20 md:min-h-screen md:px-8 md:py-60">
+<div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">    
     {/* Book Cover */}
     <div className="relative order-2 lg:order-1 flex justify-center">
       <div className="relative group">
